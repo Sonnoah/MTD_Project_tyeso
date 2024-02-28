@@ -46,6 +46,7 @@ const SignInForm = () => {
       console.log(signInData.error);
     } else {
       router.push("/admin");
+      router.refresh();
     }
   };
 

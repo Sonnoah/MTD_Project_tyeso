@@ -72,5 +72,5 @@ export const SubmitButton = ({ label }: { label: string }) => {
         <span>{pending ? "Updating" : "Update"}</span>
       )}
     </button>
-  );
-};
+  )}
+

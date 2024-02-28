@@ -1,6 +1,10 @@
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 import React from "react";
+import UserAccountnav from "./ui/UserAccountnav";
 
-export default function Narbar() {
+const Navbar = async () => {
+  const session = await getServerSession(authOptions);
   return (
     <div>
       <div className="navbar bg-base-100 ">
@@ -22,14 +26,37 @@ export default function Narbar() {
           </ul>
         </div>
         <div className="navbar-end ">
-          <a className="btn" href="/auth/signin">
-            Login
-          </a>
-          <a className="btn" href="/auth/signup">
-            Rigister
-          </a>
+          {session?.user ? (
+            <div className="flex items-center mr-5">
+              <div className=" mr-3"style={{fontSize: "15px",textTransform: "uppercase",fontWeight: "bold",}}>
+                {session?.user.username}
+              </div>
+              <UserAccountnav />
+            </div>
+          ) : (
+            <div>
+              <a className="btn" href="/auth/signin">
+                Login{" "}
+              </a>
+              <a className="btn" href="/auth/signup">
+                Rigister
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
+};
+
+export default Navbar;
+
+{
+  /* <a className="btn" href="/auth/signin">
+Login 
+</a>
+<a className="btn" href="/auth/signup">
+ Rigister
+</a> */
 }
+
