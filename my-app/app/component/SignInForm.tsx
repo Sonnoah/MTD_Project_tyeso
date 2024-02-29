@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-
+import { Toaster } from "react-hot-toast";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
@@ -17,6 +17,7 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import toast from "react-hot-toast";
 
 const FormSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email"),
@@ -43,7 +44,13 @@ const SignInForm = () => {
       redirect: false,
     });
     if (signInData?.error) {
-      console.log(signInData.error);
+      toast.error( 
+      <div>
+        <strong>Error!</strong>
+        <br />
+        Something went wrong!
+      </div>)
+
     } else {
       router.push("/admin");
       router.refresh();

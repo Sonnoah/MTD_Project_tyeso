@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
+import toast, { Toaster } from "react-hot-toast";
 import { Button } from "./ui/button";
 
 const FormSchema = z
@@ -49,7 +50,13 @@ const SignUpForm = () => {
     if (response.ok) {
       router.push("/auth/signin");
     } else {
-      console.error("Registration failed");
+      toast.error( 
+        <div>
+          <strong>Error!</strong>
+          <br />
+          Something went wrong!
+        </div>)
+  
     }
   };
 
