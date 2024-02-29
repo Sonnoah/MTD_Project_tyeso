@@ -34,8 +34,8 @@ export const saveContact = async (prevSave: any, formData: FormData) => {
     return { message: "Failed to create " };
   }
 
-  revalidatePath("/auth/stock");
-  redirect("/auth/stock");
+  revalidatePath("/auth/updatestock");
+  redirect("/auth/updatestock");
 };
 
 export const updateStock = async (
@@ -66,8 +66,8 @@ export const updateStock = async (
     return { message: "Failed to update " };
   }
 
-  revalidatePath("/auth/stock");
-  redirect("/auth/stock");
+  revalidatePath("/auth/updatestock");
+  redirect("/auth/updatestock");
 };
 
 export const deleteStock = async (id: string) => {
@@ -79,5 +79,5 @@ export const deleteStock = async (id: string) => {
     return { message: "Failed to delete contact" };
   }
 
-  revalidatePath("/auth/stock");
+  revalidatePath("/auth/updatestock");
 };
