@@ -38,6 +38,15 @@ const UserAccountnav = () => {
         </li>
         <li>
           <a
+            className="mb-3  font-medium text-gray-700 text-sm"
+            style={{ fontSize: "15px", whiteSpace: "nowrap" }}
+            href="/auth/add_product"
+          >
+            Add Product
+          </a>
+        </li>
+        <li>
+          <a
             className="mb-3 font-medium text-gray-700 text-sm"
             style={{ fontSize: "15px" }}
             onClick={() =>

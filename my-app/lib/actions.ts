@@ -81,3 +81,5 @@ export const deleteStock = async (id: string) => {
 
   revalidatePath("/auth/updatestock");
 };
+
+

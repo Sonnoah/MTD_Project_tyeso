@@ -10,7 +10,9 @@ const Navbar = async () => {
       <div className="navbar bg-base-100 ">
         <div className="navbar-start">
           <div className="dropdown"></div>
-          <a className="btn btn-ghost text-xl">LOGO</a>
+          <a href="/" className="btn btn-ghost text-xl">
+            Tyeso Stock
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -28,7 +30,14 @@ const Navbar = async () => {
         <div className="navbar-end ">
           {session?.user ? (
             <div className="flex items-center mr-5">
-              <div className=" mr-3"style={{fontSize: "15px",textTransform: "uppercase",fontWeight: "bold",}}>
+              <div
+                className=" mr-3"
+                style={{
+                  fontSize: "15px",
+                  textTransform: "uppercase",
+                  fontWeight: "bold",
+                }}
+              >
                 {session?.user.username}
               </div>
               <UserAccountnav />
@@ -50,13 +59,3 @@ const Navbar = async () => {
 };
 
 export default Navbar;
-
-{
-  /* <a className="btn" href="/auth/signin">
-Login 
-</a>
-<a className="btn" href="/auth/signup">
- Rigister
-</a> */
-}
-

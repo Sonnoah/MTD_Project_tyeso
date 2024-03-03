@@ -58,7 +58,7 @@ export const SubmitButton = ({ label }: { label: string }) => {
   const { pending } = useFormStatus();
 
   const className = clsx(
-    "text-white btn btn-outline btn-success hover:bg-blue-800 font-medium rounded-sm text-sm w-full px-5 py-3 text-center ",
+    "text-white btn btn-outline btn-info hover:bg-blue-800 font-medium text-sm w-full px-5 py-3 text-center ",
     {
       "opacity-50 cursor-progress": pending,
     }

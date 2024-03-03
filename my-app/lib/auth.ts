@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcrypt";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "./prisma";
+import jwt from "jsonwebtoken"; // Import jsonwebtoken library
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -45,6 +46,19 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
+        if (!process.env.SECRET) {
+          throw new Error(
+            "JWT secret is not defined in environment variables."
+          );
+        }
+
+        const token = jwt.sign(
+          { username: existingUser.username, email: existingUser.email,  password : existingUser.password},
+          process.env.SECRET,
+          { expiresIn: "1h" }
+        );
+        console.log("JWT Token:", token);
+
         return {
           id: `${existingUser.id}`,
           username: existingUser.username,
@@ -53,25 +67,24 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  callbacks : {
-    async jwt({ token , user}){
-      if(user){
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
         return {
           ...token,
-          username : user.username
-        }
+          username: user.username,
+        };
       }
-      return token
+      return token;
     },
-    async session ({ session , token  }){
+    async session({ session, token }) {
       return {
         ...session,
-        user : {
+        user: {
           ...session.user,
-          username : token.username
-        }
-      }
-    }
-
-  }
+          username: token.username,
+        },
+      };
+    },
+  },
 };

@@ -14,10 +14,10 @@ datasource db {
 }
 
 model Stock {
-  id String @id @default(cuid())
-  productname String
-  price String
-  remain String
+  id        String @id @default(cuid())
+  productname   String
+  price     String
+  remain    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -30,3 +30,14 @@ model Stock {
   updatedAt DateTime  @updatedAt
 }
 
+model Product {
+  id           String      @id @default(cuid()) @map("_id")
+  description  String
+  imageUrl     String
+  name         String
+  price        Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("products")
+}

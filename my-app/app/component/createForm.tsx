@@ -17,8 +17,8 @@ const CreateForm = () => {
             type="text"
             name="productname"
             id="productname"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            placeholder="Tyeso"
+            placeholder="Tyeso!"
+            className="input input-bordered   bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:border-info block w-full p-2.5"
           />
           <div id="productname-error" aria-live="polite" aria-atomic="true">
             <p className="mt-2 text-sm text-red-500">
@@ -33,8 +33,8 @@ const CreateForm = () => {
             type="text"
             name="price"
             id="price"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="290"
+            className="input input-bordered   bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:border-info block w-full p-2.5"
           />
           <div id="phone-error" aria-live="polite" aria-atomic="true">
             <p className="mt-2 text-sm text-red-500">{state?.Error?.price}</p>
@@ -47,8 +47,8 @@ const CreateForm = () => {
             type="text"
             name="remain"
             id="remain"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="10"
+            className="input input-bordered   bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:border-info block w-full p-2.5"
           />
           <div id="phone-error" aria-live="polite" aria-atomic="true">
             <p className="mt-2 text-sm text-red-500">{state?.Error?.price}</p>

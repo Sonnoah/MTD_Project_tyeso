@@ -1,28 +1,19 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
+import ProductFrom from "@/app/component/ProductFrom";
 import React from "react";
 
-export default function product() {
-  return <div>
-    <h1>Product</h1>
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-  </div>;
-}
+const page = () => {
+  return (
+    <div >
+      <h1
+        className="m-8 text-5xl font-bold text-center "
+        style={{ fontSize: "50px", textTransform: "uppercase" }}
+      >
+        Product
+      </h1>
+    <div >
+      <ProductFrom /> </div>
+    </div>
+  );
+};
+
+export default page;
