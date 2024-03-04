@@ -4,13 +4,27 @@ import Image from "next/image";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
-  
+
   return (
     <div>
-      <div
-        className="hero min-h-screen "
-        style={{ backgroundImage: 'url("/img/6271651.jpg")' }}
-      >
+      <div className="hero min-h-screen ">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        >
+          <source
+            src="/img/production_id_4786570 (1080p).mp4"
+            type="video/mp4"
+          />
+        </video>
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
@@ -24,7 +38,9 @@ export default async function Home() {
               Our main product are stainless steel vacuum mug, Travelling pot,
               Coffee pot and wated bottle.
             </p>
-            <a href="/auth/product" className="btn btn-base-content" >Get Started</a>
+            <a href="/auth/product" className="btn btn-base-content">
+              Get Started
+            </a>
           </div>
         </div>
       </div>
